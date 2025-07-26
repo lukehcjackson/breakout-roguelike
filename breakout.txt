@@ -1,0 +1,31 @@
+TO DO
+-control which direction the ball goes and fire it
+-scoring system UI
+-sound effects (each different tile has a different note from the major scale?)
+-crt shader? just need to enable and configure
+
+fulfill basic requirements from challenge page
+
+different coloured tiles with different amounts of hits to break
+other different types of tiles - score mult, other effects ...
+
+-> increase speed of ball
+-> score mult
+-> paddle speed? 
+
+is it a pick from three perks game or a deckbuilder? choose which tiles are going to go into the set of tiles the board is constructed from?
+reshuffle system like in nubby after goal is passed and ball goes off the edge?
+reset ball speed every new round
+
+desperately want roguelike elements - set number of lives, powerups, control which direciton the initial ball launch goes, change certain properties of the board, score requirements per round ... 
+
+
+CURRENT BRICK SPAWNING SETUP
+if a brick is going to spawn a new brick after it gets hit this is done with the spawnBrickSignal signal
+when we instance a new brick, this signal is connected with code
+but if we make the scene from hand to start with, this connection is not made and has to be done manually first
+the new instances of that type of brick will have the signal connected automatically, though
+
+this is the case for all signals associated with bricks:
+	- score signal
+	- spawning signal
