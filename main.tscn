@@ -405,6 +405,9 @@ points = 1
 position = Vector2(756, 420)
 points = 1
 
+[connection signal="ballRotation" from="Player" to="The Ball" method="rotateTheBall"]
+[connection signal="launchTheBall" from="Player" to="The Ball" method="launch"]
+[connection signal="playerPosition" from="Player" to="The Ball" method="followPaddle"]
 [connection signal="spawnBrickSignal" from="Bricks/Brick89" to="." method="spawnBrick"]
 [connection signal="spawnBrickSignal" from="Bricks/Brick90" to="." method="spawnBrick"]
 [connection signal="spawnBrickSignal" from="Bricks/Brick91" to="." method="spawnBrick"]

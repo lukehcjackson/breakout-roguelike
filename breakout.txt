@@ -1,8 +1,9 @@
 TO DO
--control which direction the ball goes and fire it
 -scoring system UI
+	-> both a score text object and little +1 +2 +4 popups when you break a brick
 -sound effects (each different tile has a different note from the major scale?)
 -crt shader? just need to enable and configure
+-lives system and UI
 
 fulfill basic requirements from challenge page
 
