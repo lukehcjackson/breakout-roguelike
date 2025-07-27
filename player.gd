@@ -9,11 +9,22 @@ signal launchTheBall
 signal playerPosition(currentPos: Vector2)
 signal ballRotation(dir:int)
 
+#DEBUG ONLY
+signal gainLife
+signal loseLife
+
 func _ready():
 	screen_size = get_viewport_rect().size
 	ballLaunched = false
 	
+func reset():
+	ballLaunched = false
+	position = $"../PlayerStartPos".position
+	
 func _process(delta: float) -> void:
+	#make sure nothing bumps the paddle up or down
+	position.y = $"../PlayerStartPos".position.y
+	
 	var velocity = Vector2.ZERO
 	
 	if Input.is_action_pressed("move_left"):
@@ -43,3 +54,10 @@ func _process(delta: float) -> void:
 			ballRotationDirection += 1
 		if ballRotationDirection != 0:
 			emit_signal("ballRotation", ballRotationDirection)
+			
+	#DEBUG ONLY
+	#manually add and remove lives
+	if Input.is_action_just_pressed("debug_addLife"):
+		gainLife.emit()
+	if Input.is_action_just_pressed("debug_removeLife"):
+		loseLife.emit()

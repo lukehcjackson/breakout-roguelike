@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d17hwy11dpoda"]
+[gd_scene load_steps=13 format=3 uid="uid://d17hwy11dpoda"]
 
 [ext_resource type="PackedScene" uid="uid://bsh7ureox63f8" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dgj6of5u0iqqb" path="res://main.gd" id="1_lquwl"]
@@ -8,10 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://dnjwv43p2ka02" path="res://green_brick.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bn1tmblpujk2u" path="res://score_popup.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ccvbnv6hejo8g" path="res://hud.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://blb36mb5lourp" path="res://life_icon.tscn" id="8_kek77"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_7dm0k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
+size = Vector2(1164, 20)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lquwl")
@@ -66,6 +70,9 @@ texture = SubResource("CanvasTexture_7dm0k")
 visible = false
 shape = SubResource("RectangleShape2D_ig7tw")
 
+[node name="PlayerStartPos" type="Marker2D" parent="."]
+position = Vector2(576, 620)
+
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(576, 620)
 
@@ -73,8 +80,17 @@ position = Vector2(576, 620)
 position = Vector2(575, 520)
 bounce_randomness = 50.0
 
+[node name="DeathZone" type="StaticBody2D" parent="." groups=["death"]]
+position = Vector2(0, 665)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone" groups=["death"]]
+position = Vector2(572, 0)
+shape = SubResource("RectangleShape2D_kek77")
+
 [node name="HUD" parent="." instance=ExtResource("7_272bh")]
 popup = ExtResource("7_5vw27")
+lifeIcon = ExtResource("8_kek77")
 
 [node name="TemplateBrickContainer" type="Node" parent="."]
 
@@ -87,180 +103,40 @@ position = Vector2(-282, -129)
 [node name="GreenBrick" parent="TemplateBrickContainer" instance=ExtResource("6_7mycd")]
 position = Vector2(-234, -129)
 
-[node name="GameBricks" type="Node" parent="."]
-
-[node name="BaseBrick" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(118, 93)
-
-[node name="BaseBrick17" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(118, 158)
-
-[node name="BaseBrick2" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(173, 93)
-
-[node name="BaseBrick3" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(227, 93)
-
-[node name="BaseBrick4" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(282, 93)
-
-[node name="BaseBrick5" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(336, 93)
-
-[node name="BaseBrick6" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(391, 93)
-
-[node name="BaseBrick7" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(445, 93)
-
-[node name="BaseBrick8" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(500, 93)
-
-[node name="BaseBrick19" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(118, 219)
-
-[node name="BaseBrick20" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(173, 219)
-
-[node name="BaseBrick21" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(227, 219)
-
-[node name="BaseBrick22" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(282, 219)
-
-[node name="BaseBrick23" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(336, 219)
-
-[node name="BaseBrick24" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(391, 219)
-
-[node name="BaseBrick25" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(445, 219)
-
-[node name="BaseBrick26" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(500, 219)
-
-[node name="BaseBrick18" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(500, 158)
-
-[node name="RedBrick" parent="GameBricks" instance=ExtResource("4_1bvp3")]
-position = Vector2(173, 158)
-
-[node name="GreenBrick" parent="GameBricks" instance=ExtResource("6_7mycd")]
-position = Vector2(226, 158)
-
-[node name="RedBrick2" parent="GameBricks" instance=ExtResource("4_1bvp3")]
-position = Vector2(283, 158)
-
-[node name="GreenBrick2" parent="GameBricks" instance=ExtResource("6_7mycd")]
-position = Vector2(336, 158)
-
-[node name="RedBrick3" parent="GameBricks" instance=ExtResource("4_1bvp3")]
-position = Vector2(391, 158)
-
-[node name="GreenBrick3" parent="GameBricks" instance=ExtResource("6_7mycd")]
-position = Vector2(444, 158)
-
-[node name="BaseBrick9" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(645, 93)
-
-[node name="BaseBrick27" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(645, 158)
-
-[node name="BaseBrick10" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(700, 93)
-
-[node name="BaseBrick11" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(754, 93)
-
-[node name="BaseBrick12" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(809, 93)
-
-[node name="BaseBrick13" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(863, 93)
-
-[node name="BaseBrick14" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(918, 93)
-
-[node name="BaseBrick15" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(972, 93)
-
-[node name="BaseBrick16" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(1027, 93)
-
-[node name="BaseBrick28" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(645, 219)
-
-[node name="BaseBrick29" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(700, 219)
-
-[node name="BaseBrick30" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(754, 219)
-
-[node name="BaseBrick31" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(809, 219)
-
-[node name="BaseBrick32" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(863, 219)
-
-[node name="BaseBrick33" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(918, 219)
-
-[node name="BaseBrick34" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(972, 219)
-
-[node name="BaseBrick35" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(1027, 219)
-
-[node name="BaseBrick36" parent="GameBricks" instance=ExtResource("3_h2yge")]
-position = Vector2(1027, 158)
-
-[node name="RedBrick4" parent="GameBricks" instance=ExtResource("4_1bvp3")]
-position = Vector2(700, 158)
-
-[node name="GreenBrick4" parent="GameBricks" instance=ExtResource("6_7mycd")]
-position = Vector2(753, 158)
-
-[node name="RedBrick5" parent="GameBricks" instance=ExtResource("4_1bvp3")]
-position = Vector2(810, 158)
-
-[node name="GreenBrick5" parent="GameBricks" instance=ExtResource("6_7mycd")]
-position = Vector2(863, 158)
-
-[node name="RedBrick6" parent="GameBricks" instance=ExtResource("4_1bvp3")]
-position = Vector2(918, 158)
-
-[node name="GreenBrick6" parent="GameBricks" instance=ExtResource("6_7mycd")]
-position = Vector2(971, 158)
-
 [node name="BaseBrick" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(579, 402)
+position = Vector2(411, 324)
 
 [node name="RedBrick" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(632, 401)
+position = Vector2(464, 323)
 
 [node name="GreenBrick" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(680, 401)
+position = Vector2(512, 323)
 
 [node name="GreenBrick2" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(728, 401)
+position = Vector2(560, 323)
 
 [node name="GreenBrick3" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(781, 401)
+position = Vector2(613, 323)
 
 [node name="GreenBrick4" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(827, 401)
+position = Vector2(659, 323)
 
 [node name="GreenBrick5" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(875, 399)
+position = Vector2(707, 321)
 
 [node name="GreenBrick6" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(930, 399)
+position = Vector2(762, 321)
 
+[connection signal="resetPlay" from="." to="Player" method="reset"]
+[connection signal="resetPlay" from="." to="The Ball" method="reset"]
+[connection signal="updateLivesUI" from="." to="HUD" method="update_lives_container"]
 [connection signal="updateScoreText" from="." to="HUD" method="update_score"]
 [connection signal="ballRotation" from="Player" to="The Ball" method="rotateTheBall"]
+[connection signal="gainLife" from="Player" to="." method="gainLife"]
 [connection signal="launchTheBall" from="Player" to="The Ball" method="launch"]
+[connection signal="loseLife" from="Player" to="." method="loseLife"]
 [connection signal="playerPosition" from="Player" to="The Ball" method="followPaddle"]
+[connection signal="ballDeath" from="The Ball" to="." method="ballDeath"]
 [connection signal="popup" from="TemplateBrickContainer/BaseBrick" to="HUD" method="colour_popup"]
 [connection signal="score" from="TemplateBrickContainer/BaseBrick" to="." method="handleScore"]
 [connection signal="popup" from="TemplateBrickContainer/RedBrick" to="HUD" method="colour_popup"]
@@ -269,66 +145,6 @@ position = Vector2(930, 399)
 [connection signal="popup" from="TemplateBrickContainer/GreenBrick" to="HUD" method="colour_popup"]
 [connection signal="score" from="TemplateBrickContainer/GreenBrick" to="." method="handleScore"]
 [connection signal="spawnBrickSignal" from="TemplateBrickContainer/GreenBrick" to="." method="spawnBrick"]
-[connection signal="score" from="GameBricks/BaseBrick" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick17" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick2" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick3" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick4" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick5" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick6" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick7" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick8" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick19" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick20" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick21" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick22" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick23" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick24" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick25" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick26" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick18" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/RedBrick" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GameBricks/RedBrick" to="." method="spawnBrick"]
-[connection signal="score" from="GameBricks/GreenBrick" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GameBricks/GreenBrick" to="." method="spawnBrick"]
-[connection signal="score" from="GameBricks/RedBrick2" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GameBricks/RedBrick2" to="." method="spawnBrick"]
-[connection signal="score" from="GameBricks/GreenBrick2" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GameBricks/GreenBrick2" to="." method="spawnBrick"]
-[connection signal="score" from="GameBricks/RedBrick3" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GameBricks/RedBrick3" to="." method="spawnBrick"]
-[connection signal="score" from="GameBricks/GreenBrick3" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GameBricks/GreenBrick3" to="." method="spawnBrick"]
-[connection signal="score" from="GameBricks/BaseBrick9" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick27" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick10" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick11" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick12" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick13" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick14" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick15" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick16" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick28" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick29" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick30" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick31" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick32" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick33" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick34" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick35" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/BaseBrick36" to="." method="handleScore"]
-[connection signal="score" from="GameBricks/RedBrick4" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GameBricks/RedBrick4" to="." method="spawnBrick"]
-[connection signal="score" from="GameBricks/GreenBrick4" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GameBricks/GreenBrick4" to="." method="spawnBrick"]
-[connection signal="score" from="GameBricks/RedBrick5" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GameBricks/RedBrick5" to="." method="spawnBrick"]
-[connection signal="score" from="GameBricks/GreenBrick5" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GameBricks/GreenBrick5" to="." method="spawnBrick"]
-[connection signal="score" from="GameBricks/RedBrick6" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GameBricks/RedBrick6" to="." method="spawnBrick"]
-[connection signal="score" from="GameBricks/GreenBrick6" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GameBricks/GreenBrick6" to="." method="spawnBrick"]
 [connection signal="popup" from="BaseBrick" to="HUD" method="colour_popup"]
 [connection signal="score" from="BaseBrick" to="." method="handleScore"]
 [connection signal="popup" from="RedBrick" to="HUD" method="colour_popup"]

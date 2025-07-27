@@ -1,7 +1,12 @@
 TO DO
 -sound effects (each different tile has a different note from the major scale?)
--crt shader? just need to enable and configure
+-configure crt shader
 -lives system and UI
+	-> player loses life when the ball goes off the screen
+	-> reset ball and paddle position when life is lost, except if lives == 0
+	- reconfigure how we check if the ball has been launched - currently two separate booleans, should
+	probably be one signal from main to player and ball
+
 - little bug: ball can move the paddle with a certain squishing against the walls
   when it comes time to reset the paddle and ball position after a life is lost,
   add a little check constantly during play that the paddle's y pos is the same as its start y pos

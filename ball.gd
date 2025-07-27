@@ -12,14 +12,18 @@ var offset = Vector2(0, -30)
 var rotationSensitivity = 0.05
 var rotationClamp = deg_to_rad(45)
 
+signal ballDeath
 
 func _ready():
-	readyToLaunch()
+	reset()
 
-func readyToLaunch():
+func reset():
 	speed = initial_speed
 	velocity = Vector2.ZERO
 	launched = false
+	$RotationAnchor.rotation = 0
+	await get_tree().create_timer(0.2).timeout
+	$RotationAnchor.show()
 	
 func launch():
 	launched = true
@@ -49,3 +53,8 @@ func _process(delta: float) -> void:
 			if collision.get_collider().is_in_group("brick"):
 				collision.get_collider().call("hit")
 				speed += initial_speed * bounce_speedup
+				
+			#DEATH ZONE HIT - went offscreen (or hit an object marked death zone??)
+			if collision.get_collider().is_in_group("death"):
+				ballDeath.emit()
+				#readyToLaunch()

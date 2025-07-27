@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccvbnv6hejo8g"]
+[gd_scene load_steps=5 format=3 uid="uid://ccvbnv6hejo8g"]
 
 [ext_resource type="Script" uid="uid://dxmek657dndvi" path="res://hud.gd" id="1_64ctp"]
 [ext_resource type="FontFile" uid="uid://ct2soi6atsjsp" path="res://Retro Gaming.ttf" id="2_8sq4i"]
+[ext_resource type="PackedScene" uid="uid://blb36mb5lourp" path="res://life_icon.tscn" id="3_8sq4i"]
+
+[sub_resource type="GDScript" id="GDScript_8sq4i"]
+script/source = "extends HBoxContainer
+
+func updateLivesContainer(lives):
+	pass
+"
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_64ctp")
@@ -23,3 +31,19 @@ theme_override_font_sizes/font_size = 32
 text = "Score: 0"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="LivesContainer" type="HBoxContainer" parent="."]
+offset_left = 50.0
+offset_top = 546.0
+offset_right = 190.0
+offset_bottom = 586.0
+script = SubResource("GDScript_8sq4i")
+
+[node name="LifeIcon" parent="LivesContainer" instance=ExtResource("3_8sq4i")]
+layout_mode = 2
+
+[node name="LifeIcon2" parent="LivesContainer" instance=ExtResource("3_8sq4i")]
+layout_mode = 2
+
+[node name="LifeIcon3" parent="LivesContainer" instance=ExtResource("3_8sq4i")]
+layout_mode = 2
