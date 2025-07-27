@@ -1,9 +1,10 @@
 TO DO
--scoring system UI
-	-> both a score text object and little +1 +2 +4 popups when you break a brick
 -sound effects (each different tile has a different note from the major scale?)
 -crt shader? just need to enable and configure
 -lives system and UI
+- little bug: ball can move the paddle with a certain squishing against the walls
+  when it comes time to reset the paddle and ball position after a life is lost,
+  add a little check constantly during play that the paddle's y pos is the same as its start y pos
 
 fulfill basic requirements from challenge page
 
@@ -30,3 +31,4 @@ the new instances of that type of brick will have the signal connected automatic
 this is the case for all signals associated with bricks:
 	- score signal
 	- spawning signal
+	- score popup signal

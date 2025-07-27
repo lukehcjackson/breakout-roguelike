@@ -4,13 +4,14 @@ extends Node
 @export var layer1Brick: PackedScene
 
 var score
+signal updateScoreText(score:int)
 
 func _ready() -> void:
 	score = 0
 
 func handleScore(inScore):
 	score += inScore
-	print(score)
+	emit_signal("updateScoreText",score)
 
 func spawnBrick(type, inputPosition):
 	match type:
@@ -28,3 +29,4 @@ func actuallySpawnBrick(toSpawn: PackedScene, targetPosition):
 	if toSpawn != baseBrick:
 		brick.connect("spawnBrickSignal", Callable(self, "spawnBrick"))
 	brick.connect("score", Callable(self, "handleScore"))
+	brick.connect("popup", Callable($HUD, "colour_popup"))

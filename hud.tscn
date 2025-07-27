@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccvbnv6hejo8g"]
+
+[ext_resource type="Script" uid="uid://dxmek657dndvi" path="res://hud.gd" id="1_64ctp"]
+[ext_resource type="FontFile" uid="uid://ct2soi6atsjsp" path="res://Retro Gaming.ttf" id="2_8sq4i"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_64ctp")
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -392.0
+offset_top = -126.0
+offset_right = -57.0
+offset_bottom = -44.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_8sq4i")
+theme_override_font_sizes/font_size = 32
+text = "Score: 0"
+horizontal_alignment = 2
+vertical_alignment = 1

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn1tmblpujk2u"]
+
+[ext_resource type="FontFile" uid="uid://ct2soi6atsjsp" path="res://Retro Gaming.ttf" id="1_qwwca"]
+[ext_resource type="Script" uid="uid://c1hqickdbcrhn" path="res://score_popup.gd" id="2_np7vk"]
+
+[node name="ScorePopup" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_qwwca")
+theme_override_font_sizes/font_size = 32
+text = "+2"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_np7vk")
+
+[node name="PopupTimer" type="Timer" parent="."]

@@ -24,14 +24,13 @@ func readyToLaunch():
 func launch():
 	launched = true
 	$RotationAnchor.hide()
-	velocity = Vector2.from_angle($RotationAnchor.rotation) * speed
+	#seem to have changed nothing but this stopped working and had to add the -PI/2
+	velocity = Vector2.from_angle($RotationAnchor.rotation - PI/2) * speed
 	
 func followPaddle(pos):
-	print(pos)
 	position = pos + offset
 	
 func rotateTheBall(dir):
-	print(dir)
 	$RotationAnchor.rotation += dir * rotationSensitivity
 	$RotationAnchor.rotation = clamp($RotationAnchor.rotation, -rotationClamp, rotationClamp)
 

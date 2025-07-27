@@ -15,10 +15,18 @@ run/main_scene="uid://d17hwy11dpoda"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+flowerwall_crt="*res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn"
+
 [display]
 
 window/size/resizable=false
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/flowerwall_postprocess/plugin.cfg")
 
 [input]
 
