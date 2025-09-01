@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt4c3xiqwbnyu"]
+
+[ext_resource type="PackedScene" uid="uid://c0xhvnbk2g7o1" path="res://red-brick.tscn" id="1_143ik"]
+[ext_resource type="Script" uid="uid://dw2fdm3hymoff" path="res://pink_brick.gd" id="2_143ik"]
+
+[node name="PinkBrick" instance=ExtResource("1_143ik")]
+script = ExtResource("2_143ik")
+points = 32
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.778698, 0.178605, 0.715361, 1)

@@ -65,3 +65,4 @@ have to add a good and a bad token each level?
 
 deck is an array of tiles
 shuffle it and pick some number to construct the board from
+as it stands there are 88 slots on the board for tiles to go

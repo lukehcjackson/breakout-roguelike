@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d17hwy11dpoda"]
+[gd_scene load_steps=19 format=3 uid="uid://d17hwy11dpoda"]
 
 [ext_resource type="PackedScene" uid="uid://bsh7ureox63f8" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://r7opldrlv5sw" path="res://deck_manager.gd" id="1_kek77"]
@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://bn1tmblpujk2u" path="res://score_popup.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ccvbnv6hejo8g" path="res://hud.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://blb36mb5lourp" path="res://life_icon.tscn" id="8_kek77"]
+[ext_resource type="PackedScene" uid="uid://nnpgrtya5882" path="res://blue_brick.tscn" id="12_vivmo"]
+[ext_resource type="PackedScene" uid="uid://cvh52fi6q421d" path="res://purple_brick.tscn" id="13_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://bt4c3xiqwbnyu" path="res://pink_brick.tscn" id="14_yaehf"]
+[ext_resource type="PackedScene" uid="uid://nse3qkrl7y6s" path="res://gold_brick.tscn" id="15_074og"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_7dm0k"]
 
@@ -24,6 +28,10 @@ script = ExtResource("1_lquwl")
 tier0 = ExtResource("3_h2yge")
 tier1 = ExtResource("4_1bvp3")
 tier2 = ExtResource("6_7mycd")
+tier3 = ExtResource("12_vivmo")
+tier4 = ExtResource("13_2cqfq")
+tier5 = ExtResource("14_yaehf")
+tier6 = ExtResource("15_074og")
 
 [node name="DeckManager" type="Node" parent="."]
 script = ExtResource("1_kek77")
@@ -377,6 +385,18 @@ position = Vector2(-282, -129)
 [node name="GreenBrick" parent="TemplateBrickContainer" instance=ExtResource("6_7mycd")]
 position = Vector2(-234, -129)
 
+[node name="BlueBrick" parent="TemplateBrickContainer" instance=ExtResource("12_vivmo")]
+position = Vector2(-185, -129)
+
+[node name="PurpleBrick" parent="TemplateBrickContainer" instance=ExtResource("13_2cqfq")]
+position = Vector2(-131, -131)
+
+[node name="PinkBrick" parent="TemplateBrickContainer" instance=ExtResource("14_yaehf")]
+position = Vector2(-84, -133)
+
+[node name="GoldBrick" parent="TemplateBrickContainer" instance=ExtResource("15_074og")]
+position = Vector2(-35, -134)
+
 [connection signal="gameOver" from="." to="HUD" method="game_over"]
 [connection signal="generateDefaultDeck" from="." to="DeckManager" method="generateDefaultDeck"]
 [connection signal="generateLevel" from="." to="DeckManager" method="passDeckToGenerator"]
@@ -399,3 +419,7 @@ position = Vector2(-234, -129)
 [connection signal="popup" from="TemplateBrickContainer/GreenBrick" to="HUD" method="colour_popup"]
 [connection signal="score" from="TemplateBrickContainer/GreenBrick" to="." method="handleScore"]
 [connection signal="spawnBrickSignal" from="TemplateBrickContainer/GreenBrick" to="." method="spawnBrick"]
+[connection signal="spawnBrickSignal" from="TemplateBrickContainer/BlueBrick" to="." method="spawnBrick"]
+[connection signal="spawnBrickSignal" from="TemplateBrickContainer/PurpleBrick" to="." method="spawnBrick"]
+[connection signal="spawnBrickSignal" from="TemplateBrickContainer/PinkBrick" to="." method="spawnBrick"]
+[connection signal="spawnBrickSignal" from="TemplateBrickContainer/GoldBrick" to="." method="spawnBrick"]

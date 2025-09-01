@@ -3,8 +3,10 @@ extends CanvasLayer
 @export var popup: PackedScene
 @export var lifeIcon: PackedScene
 
-func update_score(score):
+func update_score(score, mult):
 	$ScoreLabel.text = "Score: " + str(score)
+	if mult != 1:
+		$ScoreLabel.text += " x " + str(mult)
 
 func colour_popup(score, colour, pos):
 	#instantiate a score popup displaying a certain score in a certain colour at position pos

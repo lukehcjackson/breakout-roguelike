@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://nnpgrtya5882"]
+
+[ext_resource type="PackedScene" uid="uid://c0xhvnbk2g7o1" path="res://red-brick.tscn" id="1_tsyhu"]
+[ext_resource type="Script" uid="uid://lsc5cilhw4cg" path="res://blue_brick.gd" id="2_tsyhu"]
+
+[node name="BlueBrick" instance=ExtResource("1_tsyhu")]
+script = ExtResource("2_tsyhu")
+points = 8
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.136948, 0.155724, 1, 1)
