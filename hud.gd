@@ -28,3 +28,9 @@ func update_lives_container(lives):
 		to_remove.append(child)
 	for node in to_remove:
 		node.queue_free()
+		
+func game_over(score):
+	$ScoreLabel.hide()
+	$LivesContainer.hide()
+	$GameOverLabel.text = "Game Over!\nScore: " + str(score)
+	$GameOverLabel.show()

@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://d17hwy11dpoda"]
+[gd_scene load_steps=15 format=3 uid="uid://d17hwy11dpoda"]
 
 [ext_resource type="PackedScene" uid="uid://bsh7ureox63f8" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://r7opldrlv5sw" path="res://deck_manager.gd" id="1_kek77"]
 [ext_resource type="Script" uid="uid://dgj6of5u0iqqb" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dlsfwyuv36bt8" path="res://the_ball.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://cjnja4rjuqahr" path="res://level_generator.gd" id="3_efxa6"]
 [ext_resource type="PackedScene" uid="uid://8taod8yivu0q" path="res://brick.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c0xhvnbk2g7o1" path="res://red-brick.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dnjwv43p2ka02" path="res://green_brick.tscn" id="6_7mycd"]
@@ -19,12 +21,284 @@ size = Vector2(1164, 20)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lquwl")
-baseBrick = ExtResource("3_h2yge")
-layer1Brick = ExtResource("4_1bvp3")
+tier0 = ExtResource("3_h2yge")
+tier1 = ExtResource("4_1bvp3")
+tier2 = ExtResource("6_7mycd")
+
+[node name="DeckManager" type="Node" parent="."]
+script = ExtResource("1_kek77")
+
+[node name="LevelGenerator" type="Node" parent="."]
+script = ExtResource("3_efxa6")
+
+[node name="Marker2D" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(50, 100)
+
+[node name="Marker2D2" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(100, 100)
+
+[node name="Marker2D3" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(150, 100)
+
+[node name="Marker2D4" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(200, 100)
+
+[node name="Marker2D5" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(250, 100)
+
+[node name="Marker2D6" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(300, 100)
+
+[node name="Marker2D7" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(350, 100)
+
+[node name="Marker2D8" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(400, 100)
+
+[node name="Marker2D9" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(450, 100)
+
+[node name="Marker2D10" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(500, 100)
+
+[node name="Marker2D11" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(550, 100)
+
+[node name="Marker2D12" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(600, 100)
+
+[node name="Marker2D13" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(650, 100)
+
+[node name="Marker2D14" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(700, 100)
+
+[node name="Marker2D15" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(750, 100)
+
+[node name="Marker2D16" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(800, 100)
+
+[node name="Marker2D17" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(850, 100)
+
+[node name="Marker2D18" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(900, 100)
+
+[node name="Marker2D19" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(950, 100)
+
+[node name="Marker2D20" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(1000, 100)
+
+[node name="Marker2D21" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(1050, 100)
+
+[node name="Marker2D22" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(1100, 100)
+
+[node name="Marker2D23" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(50, 150)
+
+[node name="Marker2D24" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(100, 150)
+
+[node name="Marker2D25" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(150, 150)
+
+[node name="Marker2D26" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(200, 150)
+
+[node name="Marker2D27" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(250, 150)
+
+[node name="Marker2D28" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(300, 150)
+
+[node name="Marker2D29" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(350, 150)
+
+[node name="Marker2D30" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(400, 150)
+
+[node name="Marker2D31" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(450, 150)
+
+[node name="Marker2D32" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(500, 150)
+
+[node name="Marker2D33" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(550, 150)
+
+[node name="Marker2D34" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(600, 150)
+
+[node name="Marker2D35" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(650, 150)
+
+[node name="Marker2D36" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(700, 150)
+
+[node name="Marker2D37" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(750, 150)
+
+[node name="Marker2D38" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(800, 150)
+
+[node name="Marker2D39" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(850, 150)
+
+[node name="Marker2D40" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(900, 150)
+
+[node name="Marker2D41" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(950, 150)
+
+[node name="Marker2D42" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(1000, 150)
+
+[node name="Marker2D43" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(1050, 150)
+
+[node name="Marker2D44" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(1100, 150)
+
+[node name="Marker2D45" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(50, 200)
+
+[node name="Marker2D46" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(100, 200)
+
+[node name="Marker2D47" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(150, 200)
+
+[node name="Marker2D48" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(200, 200)
+
+[node name="Marker2D49" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(250, 200)
+
+[node name="Marker2D50" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(300, 200)
+
+[node name="Marker2D51" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(350, 200)
+
+[node name="Marker2D52" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(400, 200)
+
+[node name="Marker2D53" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(450, 200)
+
+[node name="Marker2D54" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(500, 200)
+
+[node name="Marker2D55" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(550, 200)
+
+[node name="Marker2D56" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(600, 200)
+
+[node name="Marker2D57" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(650, 200)
+
+[node name="Marker2D58" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(700, 200)
+
+[node name="Marker2D59" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(750, 200)
+
+[node name="Marker2D60" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(800, 200)
+
+[node name="Marker2D61" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(850, 200)
+
+[node name="Marker2D62" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(900, 200)
+
+[node name="Marker2D63" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(950, 200)
+
+[node name="Marker2D64" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(1000, 200)
+
+[node name="Marker2D65" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(1050, 200)
+
+[node name="Marker2D66" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(1100, 200)
+
+[node name="Marker2D67" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(50, 250)
+
+[node name="Marker2D68" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(100, 250)
+
+[node name="Marker2D69" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(150, 250)
+
+[node name="Marker2D70" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(200, 250)
+
+[node name="Marker2D71" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(250, 250)
+
+[node name="Marker2D72" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(300, 250)
+
+[node name="Marker2D73" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(350, 250)
+
+[node name="Marker2D74" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(400, 250)
+
+[node name="Marker2D75" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(450, 250)
+
+[node name="Marker2D76" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(500, 250)
+
+[node name="Marker2D77" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(550, 250)
+
+[node name="Marker2D78" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(600, 250)
+
+[node name="Marker2D79" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(650, 250)
+
+[node name="Marker2D80" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(700, 250)
+
+[node name="Marker2D81" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(750, 250)
+
+[node name="Marker2D82" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(800, 250)
+
+[node name="Marker2D83" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(850, 250)
+
+[node name="Marker2D84" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(900, 250)
+
+[node name="Marker2D85" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(950, 250)
+
+[node name="Marker2D86" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(1000, 250)
+
+[node name="Marker2D87" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(1050, 250)
+
+[node name="Marker2D88" type="Marker2D" parent="LevelGenerator"]
+position = Vector2(1100, 250)
 
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
+scale = Vector2(1, 1.00589)
 color = Color(0, 0, 0, 1)
 
 [node name="Walls" type="Node" parent="."]
@@ -103,34 +377,14 @@ position = Vector2(-282, -129)
 [node name="GreenBrick" parent="TemplateBrickContainer" instance=ExtResource("6_7mycd")]
 position = Vector2(-234, -129)
 
-[node name="BaseBrick" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(411, 324)
-
-[node name="RedBrick" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(464, 323)
-
-[node name="GreenBrick" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(512, 323)
-
-[node name="GreenBrick2" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(560, 323)
-
-[node name="GreenBrick3" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(613, 323)
-
-[node name="GreenBrick4" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(659, 323)
-
-[node name="GreenBrick5" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(707, 321)
-
-[node name="GreenBrick6" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(762, 321)
-
+[connection signal="gameOver" from="." to="HUD" method="game_over"]
+[connection signal="generateDefaultDeck" from="." to="DeckManager" method="generateDefaultDeck"]
+[connection signal="generateLevel" from="." to="DeckManager" method="passDeckToGenerator"]
 [connection signal="resetPlay" from="." to="Player" method="reset"]
 [connection signal="resetPlay" from="." to="The Ball" method="reset"]
 [connection signal="updateLivesUI" from="." to="HUD" method="update_lives_container"]
 [connection signal="updateScoreText" from="." to="HUD" method="update_score"]
+[connection signal="passDeck" from="DeckManager" to="LevelGenerator" method="generate_level"]
 [connection signal="ballRotation" from="Player" to="The Ball" method="rotateTheBall"]
 [connection signal="gainLife" from="Player" to="." method="gainLife"]
 [connection signal="launchTheBall" from="Player" to="The Ball" method="launch"]
@@ -145,26 +399,3 @@ position = Vector2(762, 321)
 [connection signal="popup" from="TemplateBrickContainer/GreenBrick" to="HUD" method="colour_popup"]
 [connection signal="score" from="TemplateBrickContainer/GreenBrick" to="." method="handleScore"]
 [connection signal="spawnBrickSignal" from="TemplateBrickContainer/GreenBrick" to="." method="spawnBrick"]
-[connection signal="popup" from="BaseBrick" to="HUD" method="colour_popup"]
-[connection signal="score" from="BaseBrick" to="." method="handleScore"]
-[connection signal="popup" from="RedBrick" to="HUD" method="colour_popup"]
-[connection signal="score" from="RedBrick" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="RedBrick" to="." method="spawnBrick"]
-[connection signal="popup" from="GreenBrick" to="HUD" method="colour_popup"]
-[connection signal="score" from="GreenBrick" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GreenBrick" to="." method="spawnBrick"]
-[connection signal="popup" from="GreenBrick2" to="HUD" method="colour_popup"]
-[connection signal="score" from="GreenBrick2" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GreenBrick2" to="." method="spawnBrick"]
-[connection signal="popup" from="GreenBrick3" to="HUD" method="colour_popup"]
-[connection signal="score" from="GreenBrick3" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GreenBrick3" to="." method="spawnBrick"]
-[connection signal="popup" from="GreenBrick4" to="HUD" method="colour_popup"]
-[connection signal="score" from="GreenBrick4" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GreenBrick4" to="." method="spawnBrick"]
-[connection signal="popup" from="GreenBrick5" to="HUD" method="colour_popup"]
-[connection signal="score" from="GreenBrick5" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GreenBrick5" to="." method="spawnBrick"]
-[connection signal="popup" from="GreenBrick6" to="HUD" method="colour_popup"]
-[connection signal="score" from="GreenBrick6" to="." method="handleScore"]
-[connection signal="spawnBrickSignal" from="GreenBrick6" to="." method="spawnBrick"]

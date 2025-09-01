@@ -48,11 +48,13 @@ func _process(delta: float) -> void:
 			#but applying the random v2 to the normalised .bounce makes it completely unpredictable so don't do that
 			velocity = (velocity.bounce(normal) + 
 					   Vector2(randf_range(-bounce_randomness, bounce_randomness), 
-							   randf_range(-bounce_randomness, bounce_randomness))).normalized() * speed
+							   randf_range(0, bounce_randomness))).normalized() * speed
+			speed += initial_speed * bounce_speedup
+			
 			#BRICK HIT
 			if collision.get_collider().is_in_group("brick"):
 				collision.get_collider().call("hit")
-				speed += initial_speed * bounce_speedup
+				
 				
 			#DEATH ZONE HIT - went offscreen (or hit an object marked death zone??)
 			if collision.get_collider().is_in_group("death"):

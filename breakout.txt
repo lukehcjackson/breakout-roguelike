@@ -1,15 +1,5 @@
 TO DO
 -sound effects (each different tile has a different note from the major scale?)
--configure crt shader
--lives system and UI
-	-> player loses life when the ball goes off the screen
-	-> reset ball and paddle position when life is lost, except if lives == 0
-	- reconfigure how we check if the ball has been launched - currently two separate booleans, should
-	probably be one signal from main to player and ball
-
-- little bug: ball can move the paddle with a certain squishing against the walls
-  when it comes time to reset the paddle and ball position after a life is lost,
-  add a little check constantly during play that the paddle's y pos is the same as its start y pos
 
 fulfill basic requirements from challenge page
 
@@ -37,3 +27,41 @@ this is the case for all signals associated with bricks:
 	- score signal
 	- spawning signal
 	- score popup signal
+	
+	
+TILES
+
+gold - 64 points, +1 score mult
+pink - 32 points, 
+purple - 16 points,
+blue - 8 points, 
+green - 4 points, 
+red - 2 points, 
+white - 1 point, no extra effect
+
+plus extra ones that don't decay into anything
+these can be either really powerful or have negative effects
+
+effects:
+	+1 score mult
+	increase speed of paddle
+	increase speed of ball
+	explodes when hit? hits nearby tiles?
+	gain a life?
+	lose a life?
+	add tiles to deck?
+	remove tiles from deck?
+	extra ball?
+	points for bouncing on walls and paddle?
+	
+THE DECK
+
+the player has a 'deck' of tiles which they can modify at the end of each level
+the next level is then generated from this deck of tiles
+starts out with some default deck, 30 white, 20 red, 10 green?
+player aims to add powerful tiles into the deck 
+	-> if a high tier tile decays into a low tier, they will always pick the highest tier. what do we do about that.
+have to add a good and a bad token each level?
+
+deck is an array of tiles
+shuffle it and pick some number to construct the board from
