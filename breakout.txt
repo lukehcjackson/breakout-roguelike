@@ -1,12 +1,14 @@
 TO DO
 -sound effects (each different tile has a different note from the major scale?)
 -level system
-	-> if you reach the requirement, lives reset, CHOOSE FROM THREE THINGS !!!!, regenerate the board from deck, new score requirement
-	-> to do: delete previous level when generating a new one, choose from 3 things menu
+	-> to do: choose from 3 things menu
 	-> do points reset after passing a level (balatro, nubby) or do you keep them (dice a million) ?
 	-> is there a 'shop' - if so, what's the currency - points?
 
 -> reshuffle board button? costs a life / free after losing a life?
+	-> have to do all the logic to hook up the existing button
+	-> maybe change the sprite, and have different sprite for when it's clicked / not avaiable
+	-> hide the sprite while the ball is moving to stop it covering so much of the screen? also stops the user pushing the button during play
 
 game over text should move around and bounce off the edges of the screen
 

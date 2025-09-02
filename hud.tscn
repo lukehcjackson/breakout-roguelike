@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccvbnv6hejo8g"]
+[gd_scene load_steps=6 format=3 uid="uid://ccvbnv6hejo8g"]
 
 [ext_resource type="Script" uid="uid://dxmek657dndvi" path="res://hud.gd" id="1_64ctp"]
 [ext_resource type="FontFile" uid="uid://ct2soi6atsjsp" path="res://Retro Gaming.ttf" id="2_8sq4i"]
 [ext_resource type="PackedScene" uid="uid://blb36mb5lourp" path="res://life_icon.tscn" id="3_8sq4i"]
+[ext_resource type="Texture2D" uid="uid://cbdhjvkg51kt6" path="res://reroll3.png" id="4_640wx"]
 
 [sub_resource type="GDScript" id="GDScript_8sq4i"]
 script/source = "extends HBoxContainer
@@ -87,3 +88,21 @@ Score:
 [/wave]"
 fit_content = true
 horizontal_alignment = 1
+
+[node name="ReshuffleButton" type="TextureButton" parent="."]
+texture_filter = 1
+texture_repeat = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -514.0
+offset_top = 141.0
+offset_right = -424.0
+offset_bottom = 231.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("4_640wx")
+stretch_mode = 0

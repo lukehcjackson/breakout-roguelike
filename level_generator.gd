@@ -5,19 +5,10 @@ extends Node
 #need spots where we are going to spawn the tiles
 
 func generate_level(deck):
-	#get a list of referenes to all marker2d's - that is all children of this node that don't have a child / all children of children of this node of type marker2d
 	var tileSpawnPositions = []
-	#var rows = self.get_child_count()
-	#for i in range(rows):
-		#var cols = self.get_child(i).get_child_count()
-		#for j in range(cols):
-			#tileSpawnPositions.append(self.get_child(i).get_child(j))
-	
 	var children = self.get_child_count()
 	for i in range(children):
 		tileSpawnPositions.append(self.get_child(i))
-	
-	#print(tileSpawnPositions)
 	
 	deck.shuffle()
 	
@@ -30,4 +21,10 @@ func generate_level(deck):
 			var toSpawn = "tier" + str(deck[spawnPosition])
 			#call main.spawnBrick
 			$"..".spawnBrick(toSpawn, tileSpawnPositions[spawnPosition].position)
-		
+
+
+func clear_level():
+	var bricks = get_tree().get_nodes_in_group("brick")
+	for brick in bricks:
+		if is_instance_valid(brick):
+			brick.queue_free()

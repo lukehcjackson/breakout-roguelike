@@ -12,6 +12,7 @@ var currentScoreRequirement
 
 signal resetLives
 signal generateNewLevel
+signal clearLevel
 signal updateRequirementText(req: int)
 
 func _ready() -> void:
@@ -40,15 +41,12 @@ func levelPassed():
 	#	calculate new level score requirement and display this on the screen
 	#	resume play
 	
-	#how do we detect when the level has been passed? every time score is processed,
-	#pass that value into this script, then if it is >= the requirement the level is passed?
-	
-	print("level passed")
-	
 	resetLives.emit()
+
+	clearLevel.emit()
+	
 	#todo edit deck in some way
 	
-	#TODO when we generate a new level, we currently don't delete all the old undestroyed tiles!!!
 	generateNewLevel.emit()
 	
 	currentLevel += 1
@@ -57,5 +55,3 @@ func levelPassed():
 	
 	print("level: " + str(currentLevel))
 	print("score req: " + str(currentScoreRequirement))
-	
-	return null

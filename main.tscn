@@ -410,6 +410,7 @@ position = Vector2(-35, -134)
 [connection signal="updateLivesUI" from="." to="HUD" method="update_lives_container"]
 [connection signal="updateScoreText" from="." to="HUD" method="update_score"]
 [connection signal="passDeck" from="DeckManager" to="LevelGenerator" method="generate_level"]
+[connection signal="clearLevel" from="LevelManager" to="LevelGenerator" method="clear_level"]
 [connection signal="generateNewLevel" from="LevelManager" to="DeckManager" method="passDeckToGenerator"]
 [connection signal="resetLives" from="LevelManager" to="." method="resetLives"]
 [connection signal="updateRequirementText" from="LevelManager" to="HUD" method="update_requirement"]

@@ -36,6 +36,7 @@ func update_lives_container(lives):
 		
 func game_over(score):
 	$ScoreLabel.hide()
+	$RequirementLabel.hide()
 	$LivesContainer.hide()
 	$GameOverLabel.text = "[wave amp=70.0 freq=4.0 connected=1]Game Over!\nScore: " + str(score) + "[/wave]"
 	#todo would prefer to have the text bouncing around the screen
