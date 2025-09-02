@@ -7,6 +7,9 @@ func update_score(score, mult):
 	$ScoreLabel.text = "Score: " + str(score)
 	if mult != 1:
 		$ScoreLabel.text += " x " + str(mult)
+		
+func update_requirement(req):
+	$RequirementLabel.text = "Requirement: " + str(req)
 
 func colour_popup(score, colour, pos):
 	#instantiate a score popup displaying a certain score in a certain colour at position pos
@@ -34,5 +37,6 @@ func update_lives_container(lives):
 func game_over(score):
 	$ScoreLabel.hide()
 	$LivesContainer.hide()
-	$GameOverLabel.text = "Game Over!\nScore: " + str(score)
+	$GameOverLabel.text = "[wave amp=70.0 freq=4.0 connected=1]Game Over!\nScore: " + str(score) + "[/wave]"
+	#todo would prefer to have the text bouncing around the screen
 	$GameOverLabel.show()

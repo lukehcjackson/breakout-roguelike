@@ -5,8 +5,6 @@ extends Node
 #need spots where we are going to spawn the tiles
 
 func generate_level(deck):
-	print("generating level")
-	
 	#get a list of referenes to all marker2d's - that is all children of this node that don't have a child / all children of children of this node of type marker2d
 	var tileSpawnPositions = []
 	#var rows = self.get_child_count()
@@ -28,7 +26,7 @@ func generate_level(deck):
 		#if there is enough tiles in the deck to spawn a tile in this position
 		if len(deck) > spawnPosition:
 			#spawn a tile in this position
-			print(deck[spawnPosition])
+			#print(deck[spawnPosition])
 			var toSpawn = "tier" + str(deck[spawnPosition])
 			#call main.spawnBrick
 			$"..".spawnBrick(toSpawn, tileSpawnPositions[spawnPosition].position)

@@ -20,7 +20,7 @@ func generateDefaultDeck():
 		defaultDeck.append(TILES.TIER4)
 	for i in range(3):
 		defaultDeck.append(TILES.TIER5)
-	for i in range(300):
+	for i in range(30):
 		defaultDeck.append(TILES.TIER6)
 		
 	defaultDeck.shuffle()

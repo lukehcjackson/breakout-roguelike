@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d17hwy11dpoda"]
+[gd_scene load_steps=20 format=3 uid="uid://d17hwy11dpoda"]
 
 [ext_resource type="PackedScene" uid="uid://bsh7ureox63f8" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://r7opldrlv5sw" path="res://deck_manager.gd" id="1_kek77"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bn1tmblpujk2u" path="res://score_popup.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ccvbnv6hejo8g" path="res://hud.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://blb36mb5lourp" path="res://life_icon.tscn" id="8_kek77"]
+[ext_resource type="Script" uid="uid://drbm4gskjuece" path="res://level_manager.gd" id="11_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://nnpgrtya5882" path="res://blue_brick.tscn" id="12_vivmo"]
 [ext_resource type="PackedScene" uid="uid://cvh52fi6q421d" path="res://purple_brick.tscn" id="13_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://bt4c3xiqwbnyu" path="res://pink_brick.tscn" id="14_yaehf"]
@@ -303,6 +304,9 @@ position = Vector2(1050, 250)
 [node name="Marker2D88" type="Marker2D" parent="LevelGenerator"]
 position = Vector2(1100, 250)
 
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("11_2cqfq")
+
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -400,11 +404,15 @@ position = Vector2(-35, -134)
 [connection signal="gameOver" from="." to="HUD" method="game_over"]
 [connection signal="generateDefaultDeck" from="." to="DeckManager" method="generateDefaultDeck"]
 [connection signal="generateLevel" from="." to="DeckManager" method="passDeckToGenerator"]
+[connection signal="processedScore" from="." to="LevelManager" method="checkIfLevelPassed"]
 [connection signal="resetPlay" from="." to="Player" method="reset"]
 [connection signal="resetPlay" from="." to="The Ball" method="reset"]
 [connection signal="updateLivesUI" from="." to="HUD" method="update_lives_container"]
 [connection signal="updateScoreText" from="." to="HUD" method="update_score"]
 [connection signal="passDeck" from="DeckManager" to="LevelGenerator" method="generate_level"]
+[connection signal="generateNewLevel" from="LevelManager" to="DeckManager" method="passDeckToGenerator"]
+[connection signal="resetLives" from="LevelManager" to="." method="resetLives"]
+[connection signal="updateRequirementText" from="LevelManager" to="HUD" method="update_requirement"]
 [connection signal="ballRotation" from="Player" to="The Ball" method="rotateTheBall"]
 [connection signal="gainLife" from="Player" to="." method="gainLife"]
 [connection signal="launchTheBall" from="Player" to="The Ball" method="launch"]

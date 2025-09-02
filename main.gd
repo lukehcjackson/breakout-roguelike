@@ -16,6 +16,7 @@ signal gameOver(score:int)
 
 var score
 signal updateScoreText(score:int, mult:int)
+signal processedScore(score:int)
 var mult
 
 signal resetPlay
@@ -31,11 +32,16 @@ func _ready() -> void:
 	generateLevel.emit()
 	
 func loseLife():
-	handleLives(lives-1)
 	processScore()
+	handleLives(lives-1)
 	
 func gainLife():
 	handleLives(lives+1)
+	
+func resetLives():
+	#there is a bug where resetting lives happens JUST before we lose the current life
+	#so we actually want to reset to default lives +1, because we then immediately lose one life
+	handleLives(initialLives + 1)
 	
 func handleLives(inLives):
 	lives = inLives
@@ -60,6 +66,7 @@ func processScore():
 	score = score * mult
 	mult = 1
 	emit_signal("updateScoreText", score, mult)
+	emit_signal("processedScore", score)
 	
 func game_over():
 	$"The Ball".hide()
@@ -67,7 +74,6 @@ func game_over():
 	$Player.hide()
 	$Player.process_mode = Node.PROCESS_MODE_DISABLED
 	#todo hide all remaining bricks? or drop shadow on game over text?
-	processScore()
 	emit_signal("gameOver", score)
 
 func spawnBrick(type, inputPosition):
